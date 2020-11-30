@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>코로나블루 자가진단 (한양공업고등학교)</title>
+</head>
+<body>
+  <div class="grid">
+    <h1 style="font-family: 'Nanum Gothic', sans-serif; color: Black;">코로나블루 자가진단</h1>
+    <div id="quiz">
+      <p id="question"></p>
+      <div id="#wrap"><!-- # 처리해서 id 연결 x-->
+        <!--
+       <aside id="sidebar">
+         <ul>
+           <li>정신건강상담전화 </br>1577-0199</li>
+           <li></li>
+         </ul>
+         <button><span class="btn_t">OPEN</span></button>
+       </aside>-->
+     </div>
+     
+     
+    
+     <!--팝업 기능 시작-->
+     <script src="https://code.jquery.com/jquery-latest.js"></script> 
+ 
+     <style>
+         /* 팝업 - 배경*/
+         .modal {
+             display: none; /* 기본  */
+             position: fixed; /* 유지 */
+             z-index: 1; /* 위로 */
+             left: 0;
+             top: 0;
+             width: 100%; /* 전체 넓이 */
+             height: 100%; /* 전체 높이 */
+             overflow: auto; /* 스크롤 활성화 */
+             background-color: rgb(0,0,0); /* 대체 색 */
+             background-color: rgba(0,0,0,0.4); /* 불투명도 검정 */
+         }
+     
+         /* 모델 콘텐츠 박스  */
+         .modal-content {
+             background-color: #fefefe;
+             margin: 15% auto; /* 상단 및 중앙에서 15 % */
+             padding: 30px;
+             border: 1px solid #888;
+             width: 30%;                           
+         }
+  
+ </style>
+
+     <div id="myModal" class="modal">
+  
+       <!--모델에 들어가는 내용  -->
+       <div class="modal-content">
+                 <p style="text-align: center;"><span style="font-size: 14pt;"><b><span style="font-size: 24pt;">공지</span></b></span></p>
+                 <p style="text-align: center; line-height: 1.5;"><br /></p>
+                 <p style="text-align: center; line-height: 1.5;"><span style="font-size: 14pt;">이 질문지는 여러분이 일상생활에서 <br>경험할 수 있는 내용으로 구성되어 있습니다.<br>
+                                                                                                 아래 적혀있는 문항을 잘 읽으신 후, <br>오늘을 포함하여 지난 2주간 아래 문항에 <br>해당하는 증상이 있던 날을 선택해주십시오.<br>
+                                                                                                 하나도 빼지 말고 반드시 한 가지 선택하시되<Br>너무 오래 생각하지 마시고 솔직하게 응답해주시면 됩니다.</span></p>
+                 <p style="text-align: center; text-align: 1.5;"><span style="font-size: 10pt;">자료 출처: 대안불안의학회</span></p>
+                 <p style="text-align: center; line-height: 1.5;"><br /></p>
+                 <p><br /></p>
+             <div style="cursor:pointer;background-color:#DDDDDD;text-align: center;padding-bottom: 10px;padding-top: 10px;" onClick="close_pop();">
+                 <span class="pop_bt" style="font-size: 13pt;" >
+                      닫기
+                 </span>
+             </div>
+       </div>
+  
+     </div>
+           <!--팝업 기능 끝-->
+  
+  
+     <script type="text/javascript">
+       
+         jQuery(document).ready(function() {
+                 $('#myModal').show();
+         });
+         //팝업 Close 기능
+         function close_pop(flag) {
+              $('#myModal').hide();
+         };
+         
+       </script>
+ 
+ <style>
+     body {
+       background:rgb(255, 254, 254);
+       margin: 0;
+       padding: 0;
+     }
+     #wrap {
+       width:100%;
+       height:100px;
+       background:white;
+     }
+     #sidebar {
+       background-color: darkgrey;
+       width: 300px;
+       height: 100%;
+       top: 0;
+       left: -300px;
+       position: fixed;
+     }
+     #sidebar > ul {
+       margin:0;
+       padding: 0;
+       top:50px;
+       left:70px;
+       position: absolute;
+     }
+     #sidebar li {
+       margin: 0 0 20px;
+       list-style: none;
+     }
+     #sidebar > button {
+       background:rgb(10, 10, 10);
+       position: absolute;
+       top: 150px;
+       left: 300px;
+       width: 52px;
+       height: 52px;
+       border: none;
+       color: white;
+     }
+   </style>
+ 
+ 
+ 
+ <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script type="text/javascript">
+   $(function(){
+     var duration = 300;
+ 
+     var $side = $('#sidebar');
+     var $sidebt = $side.find('button').on('click', function(){
+       $side.toggleClass('open');
+ 
+       if($side.hasClass('open')) {
+         $side.stop(true).animate({left:'0px'}, duration);
+         $sidebt.find('span').text('CLOSE');
+       }else{
+         $side.stop(true).animate({left:'-300px'}, duration);
+         $sidebt.find('span').text('OPEN');
+       };
+     });
+   });
+ </script>
+      <div class="buttons">
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
+        <button class="btn"></button>
+      </div>
+  
+      <footer>
+        <p id="progress">진행 정보</p>
+      </footer>
+      
+      <!--<H6 style="text-align: right;">출처 : 대한불안의학회 <br> 정신건강상담전화 1577-0199</H6>-->
+    </div>
+  </div>
+  <head>
+    <link rel="stylesheet" href="Corona_19_self-diagnosis.css" />
+    <script src="Corona_19_self-diagnosis.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap" rel="stylesheet">
+  </head>
+</body>
+</html>
